@@ -1,3 +1,8 @@
+we need to install the dependencies before running the projects
+
+run frontEnd on http://localhost:5173/
+the backEnd happens on http://localhost:8000/
+
 This are the environment variables we need to define for the project to work
 
 mada0245_jwtPrivateKey ---> this is the server pass for jason web token
