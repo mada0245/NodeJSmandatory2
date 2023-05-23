@@ -1,5 +1,7 @@
 <script>
     import { goto } from '$app/navigation';
+    import { CheckLogin } from '$lib/privateRoutes';
+    CheckLogin();
 </script>
 
 
