@@ -13,8 +13,6 @@ export function CheckLogin() {
             },
         });
 
-        let isLoggined;
-
         if (!response.ok) {
             console.error('Error:', response.status, response.statusText);
             console.log("You need to login to access that page");
