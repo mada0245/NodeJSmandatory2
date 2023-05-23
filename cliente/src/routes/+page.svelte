@@ -1,5 +1,6 @@
 <script>
- import { goto } from '$app/navigation';
+import { goto } from '$app/navigation';
+
     let username;
     let inputPassword;
 
@@ -86,6 +87,7 @@
 
 
 <!-- HTML -->
+
 <div>
     <h1>
         <p class="title">Login Page</p>
