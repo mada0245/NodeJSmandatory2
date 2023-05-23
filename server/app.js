@@ -7,7 +7,17 @@ const config = require('config');
 const token = require('./routes/token');
 
 if(!config.get('jwtPrivateKey')){
-    console.log('jwtPrivateKey is not defined.');
+    console.log('mada0245_jwtPrivateKey is not defined.');
+    process.exit(1);
+}
+
+if(!process.env.NODEMAILER_USERNAME){
+    console.log('NODEMAILER_USERNAME is not defined.');
+    process.exit(1);
+}
+
+if(!process.env.NODEMAILER_PASSWORD){
+    console.log('NODEMAILER_PASSWORD is not defined.');
     process.exit(1);
 }
 

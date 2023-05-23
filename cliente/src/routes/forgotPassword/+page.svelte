@@ -23,7 +23,8 @@
                 goto("/");
             } else {
                 console.error('Error:', response.status, response.statusText);
-                alert("The email does not exist");
+                const result = await response.text();
+                alert(result);
             }
 
         }else{
@@ -48,6 +49,7 @@
            <p class="subtitle">Please insert your email</p>
        </h2>
        <p class="notes">Email = admin@example.com</p>
+       <p class="notes">SignUp a user with an email that you have access, for demonstration</p>
    </div>
    
    

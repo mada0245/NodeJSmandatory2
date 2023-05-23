@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { connect, close } = require('../database/connection');
+const nodemailer = require('nodemailer');
 
 const router = express.Router();
 router.use(express.json());
@@ -17,10 +18,32 @@ router.post('/', async (req, res) => {
       const existingUserByEmail = await collection.findOne({ email: req.body.email });
 
       if (existingUserByEmail) {
-        //nodemailer
-        res.send(`An email has been sent to ${req.body.email}`);
-      }
-      else{
+      
+        const transporter = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+            user: process.env.NODEMAILER_USERNAME,
+            pass: process.env.NODEMAILER_PASSWORD
+          }
+        });
+
+        const message = {
+          from: process.env.NODEMAILER_USERNAME,
+          to: req.body.email,
+          subject: 'Password recovery',
+          text: 'This could be a link to where you could recover your password. But this functionality is not yet available'
+        };
+
+        transporter.sendMail(message, (error, info) => {
+          if (error) {
+            console.error('Error:', error);
+            res.status(500).send('Failed to send email');
+          } else {
+            console.log('Email sent:', info.response);
+            res.send(`An email has been sent to ${req.body.email}`);
+          }
+        });
+      } else {
         res.status(400).send('The email does not exist');
       }
     } catch (error) {

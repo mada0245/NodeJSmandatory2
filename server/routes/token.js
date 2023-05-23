@@ -35,8 +35,6 @@ router.delete('/delete', async (req, res) => {
     const collection = database.collection('tokens');
     
     await collection.deleteMany({});
-    
-    res.send('All good here :)');
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal server error');
