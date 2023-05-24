@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
           }
         });
       } else {
-        res.status(400).send('The email does not exist');
+        res.status(400).send('The email does not exist, try to login once first.');
       }
     } catch (error) {
       console.error(error);

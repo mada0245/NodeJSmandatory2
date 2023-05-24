@@ -38,6 +38,7 @@ router.post('/', async (req, res) => {
         }
   
         const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
+        console.log(isPasswordValid);
   
         if (!isPasswordValid) {
             return res.status(400).send('Wrong credentials');

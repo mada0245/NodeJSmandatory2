@@ -5,6 +5,7 @@ const login = require('./routes/login');
 const forgotPassword = require('./routes/forgotPassword');
 const config = require('config');
 const token = require('./routes/token');
+const helmet = require('helmet');
 
 if(!config.get('jwtPrivateKey')){
     console.log('mada0245_jwtPrivateKey is not defined.');
@@ -21,11 +22,11 @@ if(!process.env.NODEMAILER_PASSWORD){
     process.exit(1);
 }
 
-app.use(express.static("../cliente/public"));
 app.use('/api/signup', signUp);
 app.use('/api/login', login);
 app.use('/api/forgotPassword', forgotPassword);
 app.use('/api/token', token);
+app.use(helmet);
 
 
 

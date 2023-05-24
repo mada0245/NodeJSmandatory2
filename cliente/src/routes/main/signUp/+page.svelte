@@ -71,6 +71,7 @@
         if (response.ok) {
             const result = await response.text();
             console.log(result);
+            goto('/main');
         } else {
             console.error('Error:', response.status, response.statusText);
             const result = await response.text();
