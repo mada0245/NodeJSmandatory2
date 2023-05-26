@@ -22,6 +22,11 @@ if(!process.env.NODEMAILER_PASSWORD){
     process.exit(1);
 }
 
+if(!process.env.MADA0245_ADMIN_PASS){
+    console.log('MADA0245_ADMIN_PASS is not defined.');
+    process.exit(1);
+}
+
 app.use('/api/signup', signUp);
 app.use('/api/login', login);
 app.use('/api/forgotPassword', forgotPassword);

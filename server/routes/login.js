@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 
         if (!adminExists) {
           const salt = await bcrypt.genSalt(10);
-          const hashedPassword = await bcrypt.hash("pass", salt);
+          const hashedPassword = await bcrypt.hash(process.env.MADA0245_ADMIN_PASS, salt);
 
           const theAdmin = {
             name: "admin",
